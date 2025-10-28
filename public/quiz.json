@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "question": "Which HTML tag is used to include JavaScript?",
+    "choices": ["<js>", "<script>", "<javascript>", "<code>"],
+    "correctIndex": 1,
+    "explanation": "<script> is the correct tag to include JavaScript."
+  },
+  {
+    "id": 2,
+    "question": "What does CSS stand for?",
+    "choices": [
+      "Cascading Style Sheets",
+      "Creative Style System",
+      "Computer Styled Sections",
+      "Colorful Style Syntax"
+    ],
+    "correctIndex": 0,
+    "explanation": "CSS = Cascading Style Sheets."
+  }
+]
