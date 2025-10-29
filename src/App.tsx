@@ -1,6 +1,8 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import type { Question } from "./types";
+import QuestionCard from "./components/QuestionCard";
+import EndScreen from "./components/EndScreen";
 
 function App() {
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -8,6 +10,9 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [current, setCurrent] = useState(0);
   const [score, setScore] = useState(0);
+
+  const currentQuestion = questions[current];
+  const isFinished = current >= questions.length;
 
   useEffect(() => {
     fetch("/quiz.json")
@@ -21,40 +26,37 @@ function App() {
       .finally(() => setLoading(false));
   }, []);
 
-  console.log("questions length:", questions.length);
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
-
-  const currentQuestion = questions[current];
+  if (isFinished) {
+    return (
+      <main>
+        <EndScreen
+          score={score}
+          total={questions.length}
+          onRestart={() => {
+            setCurrent(0);
+            setScore(0);
+          }}
+        />
+      </main>
+    );
+  }
 
   return (
     <main>
       <h1>Quiz App</h1>
-      <h2>
-        Question {current + 1} / {questions.length}
-      </h2>
-      <p>{currentQuestion.question}</p>
-      <div className="choices-grid">
-        {currentQuestion.choices.map((choice, index) => (
-          <input
-            key={index}
-            type="button"
-            value={choice}
-            onClick={() => {
-              if (index === currentQuestion.correctIndex) {
-                setScore(score + 1);
-                console.log("correct");
-              } else {
-                console.log("wrong");
-              }
-
-              setCurrent(current + 1);
-            }}
-          ></input>
-        ))}
-      </div>
-      <p>Score: {score}</p>
+      <QuestionCard
+        question={currentQuestion}
+        index={current}
+        total={questions.length}
+        onSelect={(choiceIndex) => {
+          if (choiceIndex === currentQuestion.correctIndex) {
+            setScore((prev) => prev + 1);
+          }
+          setCurrent((prev) => prev + 1);
+        }}
+      />
     </main>
   );
 }

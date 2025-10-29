@@ -1,21 +1,97 @@
 [
   {
     "id": 1,
-    "question": "Which HTML tag is used to include JavaScript?",
-    "choices": ["<js>", "<script>", "<javascript>", "<code>"],
+    "question": "Which HTML element is used to create a hyperlink?",
+    "choices": ["<link>", "<a>", "<href>", "<url>"],
     "correctIndex": 1,
-    "explanation": "<script> is the correct tag to include JavaScript."
+    "explanation": "The <a> element defines a hyperlink that links one page to another."
   },
   {
     "id": 2,
     "question": "What does CSS stand for?",
     "choices": [
+      "Creative Style Sheets",
       "Cascading Style Sheets",
-      "Creative Style System",
-      "Computer Styled Sections",
+      "Computer Style System",
       "Colorful Style Syntax"
     ],
+    "correctIndex": 1,
+    "explanation": "CSS means Cascading Style Sheets."
+  },
+  {
+    "id": 3,
+    "question": "Which property is used in CSS to change the text color?",
+    "choices": ["font-color", "text-color", "color", "foreground"],
+    "correctIndex": 2,
+    "explanation": "The 'color' property defines the color of the text content."
+  },
+  {
+    "id": 4,
+    "question": "What is the correct syntax to include an external JavaScript file?",
+    "choices": [
+      "<script href='app.js'></script>",
+      "<script link='app.js'></script>",
+      "<script src='app.js'></script>",
+      "<javascript src='app.js'></javascript>"
+    ],
+    "correctIndex": 2,
+    "explanation": "We include JavaScript files using the 'src' attribute inside a <script> tag."
+  },
+  {
+    "id": 5,
+    "question": "In JavaScript, which keyword declares a constant variable?",
+    "choices": ["var", "let", "const", "static"],
+    "correctIndex": 2,
+    "explanation": "The 'const' keyword creates a constant reference that cannot be reassigned."
+  },
+  {
+    "id": 6,
+    "question": "What is the output of: console.log(typeof null)?",
+    "choices": ["null", "object", "undefined", "string"],
+    "correctIndex": 1,
+    "explanation": "Due to a long-standing JS bug, typeof null returns 'object'."
+  },
+  {
+    "id": 7,
+    "question": "In React, which hook is used to manage component state?",
+    "choices": ["useEffect", "useRef", "useState", "useContext"],
+    "correctIndex": 2,
+    "explanation": "The 'useState' hook lets you add state to functional components."
+  },
+  {
+    "id": 8,
+    "question": "What does the dependency array in useEffect control?",
+    "choices": [
+      "When the effect runs",
+      "How many renders React performs",
+      "The component's CSS styling",
+      "The function's return value"
+    ],
     "correctIndex": 0,
-    "explanation": "CSS = Cascading Style Sheets."
+    "explanation": "The dependency array tells React when to re-run the effect based on value changes."
+  },
+  {
+    "id": 9,
+    "question": "In React, what is the purpose of props?",
+    "choices": [
+      "To store local component state",
+      "To pass data from parent to child components",
+      "To define global CSS styles",
+      "To update the DOM directly"
+    ],
+    "correctIndex": 1,
+    "explanation": "Props let parent components pass data down to children."
+  },
+  {
+    "id": 10,
+    "question": "Which command creates a new React project using Vite?",
+    "choices": [
+      "npm init vite@latest my-react-app -- --template react",
+      "npm create vite@latest my-react-app -- --template react",
+      "npm install vite my-react-app",
+      "vite create-react-app my-react-app"
+    ],
+    "correctIndex": 1,
+    "explanation": "Vite projects are created using 'npm create vite@latest' followed by template selection."
   }
 ]
